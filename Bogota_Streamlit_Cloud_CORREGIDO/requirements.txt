@@ -1,0 +1,6 @@
+# Dependencias necesarias para Streamlit Community Cloud.
+# Se coloca tambien junto a app/app.py: Cloud revisa primero esa carpeta.
+streamlit>=1.53,<2
+plotly>=6.0,<7
+pandas>=2.1,<3
+numpy>=1.26,<3
