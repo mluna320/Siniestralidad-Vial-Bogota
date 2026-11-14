@@ -1,0 +1,222 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Evaluación de visualizaciones · Bogotá</title><style>
+:root {--navy:#16213A; --orange:#E8772E; --gray:#667085; --light:#F4F6F9;}
+* {box-sizing:border-box} body{margin:0;font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#1D2939;line-height:1.65}
+main{max-width:1110px;margin:0 auto;padding:45px 46px 90px} h1,h2,h3{color:var(--navy);line-height:1.25}
+h1{font-size:2.4rem;border-left:6px solid var(--orange);padding-left:24px;margin:0 0 26px}
+h2{margin-top:4rem;font-size:1.55rem;border-bottom:1px solid #E4E7EC;padding-bottom:.65rem}
+h3{margin-top:1.65rem;font-size:1.09rem} p,li{font-size:.99rem}strong{color:var(--navy)}
+table{border-collapse:collapse;width:100%;font-size:.87rem;margin:1.7rem 0 2rem} th{background:var(--navy);color:#fff;text-align:left}
+th,td{padding:.75rem .82rem;border:1px solid #E4E7EC;vertical-align:top} tr:nth-child(even){background:#F4F6F9}
+a{color:#D46324;overflow-wrap:anywhere} ul{padding-left:1.4rem}
+blockquote{margin-left:0;padding:1rem 1.5rem;background:var(--light);border-left:4px solid var(--orange)}
+hr{border:0;border-top:1px solid #E4E7EC;margin:2rem 0}
+code{background:var(--light);padding:1px 4px;border-radius:4px}
+@media(max-width:720px){main{padding:30px 18px}h1{font-size:1.7rem}table{display:block;overflow-x:auto}}
+@media print{main{padding:0}h2{break-before:page}table{font-size:9pt}a{color:inherit}}
+</style></head><body><main><h1>Evaluación de las visualizaciones · Siniestralidad vial de Bogotá, 2015–2025</h1>
+<p><strong>Objeto evaluado.</strong> Los <strong>seis gráficos Plotly</strong> del informe narrativo depurado (HTML y versión Streamlit); su secuencia, datos y su correspondencia con la pregunta analítica. <strong>No</strong> se auditan aquí todas las visualizaciones internas del archivo Power BI, porque se trata de otro artefacto. Las paletas se contrastaron con el tema original del tablero (<code>TemaClaro.json</code>).</p>
+<p><strong>Criterio.</strong> Evaluación de adecuación del dominio, abstracción, codificación visual e implementación (Munzner, 2009); expresividad y efectividad (Mackinlay, 1986); precisión de la tarea perceptual (Cleveland &amp; McGill, 1984). La decisión de sustitución exige una ventaja objetiva, no una preferencia estética. Los destinatarios plausibles son personas que consultan la siniestralidad y responsables de seguimiento de seguridad vial; sus necesidades individuales <strong>no</strong> han sido verificadas con entrevistas o pruebas de usuarios.</p>
+<h2>Resultado general</h2>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center">N.º</th>
+  <th>Visualización</th>
+  <th>Tarea dominante</th>
+  <th>Diagnóstico</th>
+  <th>Decisión</th>
+  <th>Implementación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">1</td>
+  <td>Siniestros con víctimas, 2015–2025</td>
+  <td>Tendencia, extremos y comparación interanual</td>
+  <td>Línea apropiada; información sobre cifras enteras mal formateada en el <em>hover</em> y anotación que sugería una explicación causal</td>
+  <td>🟡 <strong>AJUSTAR</strong></td>
+  <td>Corregir separadores/decimales del <em>hover</em>; anotar el mínimo observado, sin atribuir causa</td>
+</tr>
+<tr>
+  <td style="text-align:center">2</td>
+  <td>Fallecidos, 2015–2025</td>
+  <td>Tendencia temporal y magnitud de muertes</td>
+  <td>Ejes, escala y línea consistentes con la tarea</td>
+  <td>✅ <strong>CONSERVAR</strong></td>
+  <td>Objeto gráfico intacto</td>
+</tr>
+<tr>
+  <td style="text-align:center">3</td>
+  <td>Participación de motociclistas y peatones</td>
+  <td>Comparar dos series de porcentajes</td>
+  <td>Dos líneas son pertinentes; <em>hover</em> con decimal anglosajón en un informe en español</td>
+  <td>🟡 <strong>AJUSTAR</strong></td>
+  <td>Formato decimal español en <em>hover</em>, sin modificar trazos ni series</td>
+</tr>
+<tr>
+  <td style="text-align:center">4</td>
+  <td>Fallecidos por 100 víctimas según franja</td>
+  <td>Comparar cuatro proporciones con base común</td>
+  <td>Barras y base cero apropiadas; rótulos largos y formato decimal del <em>hover</em></td>
+  <td>🟡 <strong>AJUSTAR</strong></td>
+  <td>Etiquetas de categoría en dos líneas; <em>hover</em> numérico localizado</td>
+</tr>
+<tr>
+  <td style="text-align:center">5</td>
+  <td>Diez localidades con más fallecidos</td>
+  <td>Identificar y ordenar los máximos</td>
+  <td>Ranking horizontal ordenado, base cero y valores exactos</td>
+  <td>✅ <strong>CONSERVAR</strong></td>
+  <td>Objeto gráfico intacto</td>
+</tr>
+<tr>
+  <td style="text-align:center">6</td>
+  <td>Motociclistas fallecidos: localidad × franja</td>
+  <td>Localizar combinaciones altas en una matriz categórica</td>
+  <td>Mapa de calor pertinente, pero el significado de la intensidad cromática podía quedar implícito</td>
+  <td>🟡 <strong>AJUSTAR</strong></td>
+  <td>Aclaración de la escala cualitativa de intensidad en subtítulo; mapa de calor intacto</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Balance: 2 gráficos conservados y 4 ajustados; 0 reemplazados.</strong> Se mantuvieron los tipos de gráfico, las seis posiciones en la narrativa y <strong>todas</strong> las series y agregaciones. Tres ajustes intervienen solo textos emergentes/etiquetas; el cuarto añade una precisión semántica al subtítulo. Ningún cambio pretende demostrar un aumento perceptual medido experimentalmente.</p>
+<hr />
+<h2>GRÁFICO 1. Siniestros con personas heridas o fallecidas, por año</h2>
+<h3>1. Propósito</h3>
+<p><strong>Pregunta:</strong> ¿cómo varía anualmente la cantidad de siniestros distintos con víctimas en Bogotá entre 2015 y 2025? <strong>Tarea:</strong> leer tendencia, comparar años, localizar extremos. <strong>Variables:</strong> <code>anio</code> (temporal anual ordenado; 2015–2025) y <code>siniestros_con_victimas</code> (cuantitativa discreta de conteo). Unidad de observación presentada: <strong>año</strong>; medida: <strong>siniestros distintos con al menos una víctima</strong>, no personas. El contexto de uso plausible es comprender la evolución, no calcular tasas de exposición vial.</p>
+<h3>2. Evaluación teórica</h3>
+<ul>
+<li><strong>Munzner / dominio:</strong> pregunta adecuada a la problemática temporal. Se evita confundir un suceso con su número de víctimas. Riesgo de dominio: leer una reducción de eventos como una reducción equivalente de su gravedad.</li>
+<li><strong>Munzner / abstracción:</strong> datos temporales agregados por año; operación de serie temporal, extremos y cambios interanuales. La agregación anual responde la pregunta sobre evolución, pero no estacionalidad o tasas por viaje.</li>
+<li><strong>Munzner / codificación/interacción:</strong> línea con puntos sobre ejes rectilíneos; orden cronológico continuo y línea azul del tema original. Permite comparar posiciones en una escala común. El punto destacado de 2025 respeta el foco narrativo. El <em>hover</em> original mostraba décimas inexistentes en un conteo entero (<code>11,573.0</code> para 11.573).</li>
+<li><strong>Munzner / algoritmo:</strong> se contrastó cada punto contra los once valores del CSV anual conservado, y la igualdad se mantuvo tras el ajuste. La anotación original “2020 · cambio de movilidad” mezclaba observación del gráfico con una explicación que el gráfico aislado no verifica.</li>
+<li><strong>Mackinlay:</strong> expresividad correcta en la geometría de la línea; defecto puntual de expresividad en el <em>hover</em> y en la atribución del comentario. Efectividad alta para cambios por año; un gráfico de barras exigiría comparar longitudes y sería menos natural para continuidad temporal.</li>
+<li><strong>Cleveland &amp; McGill:</strong> la lectura cuantitativa procede por <strong>posición sobre una escala común</strong>. No exige juzgar sectores, áreas o volumen. La pendiente ayuda a la dirección temporal, no sustituye los valores.</li>
+</ul>
+<h3>3. Diagnóstico</h3>
+<p><strong>Fortalezas:</strong> escala temporal legible, 2020 claramente diferenciable, unidad expresada en el título. <strong>Debilidades:</strong> decimal falso y separadores anglosajones del dato flotante en el <em>hover</em>; anotación causal no sustentada por esa serie. <strong>Riesgo:</strong> inferir una explicación de la caída de 2020 sin evidencia de movilidad o exposición.</p>
+<h3>4. Alternativas</h3>
+<p><strong>Actual:</strong> línea de puntos y anotación. <strong>Alternativa considerada:</strong> columnas por año. <strong>Comparación:</strong> las columnas facilitan magnitudes absolutas contra cero, pero agregan once barras y no mejoran la lectura del patrón longitudinal; por tanto, <strong>no se justifica reemplazar</strong>.</p>
+<h3>5. Decisión final</h3>
+<p>🟡 <strong>AJUSTAR.</strong> Se conserva el gráfico de líneas y sus valores; se corrigen solamente metadatos de lectura y anotación. Fundamento: exactitud semántica (Mackinlay) sin perder posición común (Cleveland &amp; McGill).</p>
+<h3>6. Implementación y verificación</h3>
+<p>Se cambió el <em>hover</em> a <strong>“2025: 11.573 siniestros con víctimas”</strong> (sin décimas) y la anotación a <strong>“2020 · mínimo de la serie”</strong>, afirmación comprobada contra la propia serie. La secuencia anual y sus valores permanecen idénticos. La comparación con fuente conservada arrojó 11.255 en 2015, 8.936 en 2020 y 11.573 en 2025.</p>
+<hr />
+<h2>GRÁFICO 2. Personas fallecidas en siniestros viales, por año</h2>
+<h3>1. Propósito</h3>
+<p><strong>Pregunta:</strong> ¿cómo evolucionan los fallecimientos por siniestros viales entre 2015 y 2025 y qué contraste ofrecen frente a los eventos? <strong>Tarea:</strong> seguir tendencia, detectar máximos y mínimos, contrastar años. <strong>Variables:</strong> <code>anio</code> (temporal anual), <code>estado = Fallecido</code> (filtro nominal), y cantidad de personas fallecidas (cuantitativa discreta). La definición operativa es <strong>fallecimiento a 30 días</strong>.</p>
+<h3>2. Evaluación teórica</h3>
+<ul>
+<li><strong>Munzner / dominio:</strong> el indicador es central para integridad y vida; complementa el conteo de eventos sin confundir sus denominadores.</li>
+<li><strong>Munzner / abstracción:</strong> conteo anual de filas de víctimas fatales. Se preserva la diferenciación entre personas y siniestros. Riesgo del dominio: tratar la serie de muertes como tasa de mortalidad por trayecto sin información de exposición.</li>
+<li><strong>Munzner / codificación/interacción:</strong> línea naranja con puntos, años en el eje horizontal, eje vertical desde cero y <em>hover</em> de enteros. La naranja conserva su papel de énfasis narrativo.</li>
+<li><strong>Munzner / implementación:</strong> se verificó identidad de la representación exportada <strong>antes y después</strong> del proceso. Los valores fueron recomputados desde los registros de víctimas.</li>
+<li><strong>Mackinlay:</strong> expresividad y efectividad adecuadas: una variable temporal y otra cuantitativa, con escala común dentro de la gráfica. La separación visual respecto de la serie de eventos evita imponer una falsa equivalencia de magnitud.</li>
+<li><strong>Cleveland &amp; McGill:</strong> comparación por posición sobre eje común; la línea es pertinente para continuidad temporal y no emplea codificaciones menos precisas.</li>
+</ul>
+<h3>3. Diagnóstico</h3>
+<p><strong>Fortalezas:</strong> compara cambios de año en año con escala explícita, semántica de unidad correcta. <strong>Debilidades:</strong> no puede responder por sí sola a la pregunta de riesgo por viaje; comparaciones porcentuales con siniestros requieren leer ambos gráficos o calcular variaciones, no comparar sus alturas directamente. <strong>Riesgo:</strong> atribuir las variaciones a políticas concretas sin análisis causal.</p>
+<h3>4. Alternativas</h3>
+<p><strong>Actual:</strong> línea única. <strong>Alternativa considerada:</strong> barras verticales o doble eje junto con siniestros. Las barras no aportan ventaja clara para tendencia; un doble eje puede confundir escalas y exagerar o amortiguar correlaciones. No conviene reemplazar.</p>
+<h3>5. Decisión final</h3>
+<p>✅ <strong>CONSERVAR</strong>, sin modificar datos, geometría, etiquetas, colores ni configuración Plotly.</p>
+<h3>6. Implementación y verificación</h3>
+<p>No se hizo ninguna modificación. Se verificó que el objeto gráfico completo (trazas y configuración de ejes) coincide exactamente con el original y que se reproduce el conteo derivado de <code>estado = Fallecido</code> por año: 530 fallecidos en 2015 y 562 en 2025.</p>
+<hr />
+<h2>GRÁFICO 3. Participación entre fallecidos: motociclistas y peatones</h2>
+<h3>1. Propósito</h3>
+<p><strong>Pregunta:</strong> ¿cómo cambió la participación relativa de motociclistas y peatones entre las personas fallecidas? <strong>Tarea:</strong> comparar tendencias de dos grupos y localizar la inversión en su posición relativa. <strong>Variables:</strong> <code>anio</code> (temporal), <code>actor</code> (nominal; dos categorías elegidas), <code>estado</code> (nominal, filtro “Fallecido”) y proporción anual <code>fallecidos_actor / fallecidos_total × 100</code> (cuantitativa porcentual).</p>
+<h3>2. Evaluación teórica</h3>
+<ul>
+<li><strong>Munzner / dominio:</strong> relevante para conocer qué grupos componen los fallecimientos; <strong>no</strong> estima probabilidades individuales de muerte.</li>
+<li><strong>Munzner / abstracción:</strong> el denominador es el total anual de fallecidos de todos los actores; se muestran únicamente dos categorías seleccionadas. Son <strong>dos participaciones parciales</strong>, no el 100 % de la composición; así lo indica el subtítulo. Se comprobó la fórmula sobre los registros.</li>
+<li><strong>Munzner / codificación/interacción:</strong> dos líneas por año, colores azul y gris, leyenda explícita, eje porcentual de 0 a 60 y foco naranja al punto final de motociclistas. Las dos curvas comparten escala y la codificación de categorías es inequívoca. El <em>hover</em> previo representaba decimales con punto mientras el informe utiliza coma.</li>
+<li><strong>Munzner / implementación:</strong> las dos series se contrastaron contra conteos de actores y totales anuales; no se alteraron valores, escala, puntos ni líneas.</li>
+<li><strong>Mackinlay:</strong> expresividad correcta para las dos participaciones descritas. Si el objetivo fuese <strong>composición exhaustiva</strong>, harían falta otras categorías y sería otra pregunta; no es motivo para sustituir la comparación de dos grupos. La efectividad de líneas es alta al comparar tendencias.</li>
+<li><strong>Cleveland &amp; McGill:</strong> posición vertical común; se percibe tanto variación de cada serie como diferencia entre ambas en un año. No se requiere comparar áreas apiladas.</li>
+</ul>
+<h3>3. Diagnóstico</h3>
+<p><strong>Fortalezas:</strong> diferencias de trayectoria legibles; evita confundir magnitudes absolutas con participación. <strong>Debilidad:</strong> detalle de localización numérica en <em>hover</em>. <strong>Riesgo:</strong> interpretar “45,4 % de fallecidos” como “45,4 % de motociclistas muere”; el gráfico no mide eso.</p>
+<h3>4. Alternativas</h3>
+<p><strong>Actual:</strong> dos líneas. <strong>Alternativa considerada:</strong> área apilada o barra 100 % apilada por año con todos los actores. La alternativa serviría para composición completa, pero obligaría a una tarea distinta y haría más difícil comparar con precisión dos series específicas. No es superior para la pregunta vigente.</p>
+<h3>5. Decisión final</h3>
+<p>🟡 <strong>AJUSTAR</strong> únicamente la lectura del <em>hover</em> en español. No se reemplaza ni se altera el diseño visual.</p>
+<h3>6. Implementación y verificación</h3>
+<p>Los valores emergentes ahora presentan <strong>45,4 %</strong> en lugar de <strong>45.4 %</strong>. Se comprobó la identidad de las series originales y de los estilos. En 2015, motociclistas ≈30,8 % y peatones ≈48,5 %; en 2025, ≈45,4 % y ≈39,1 %, respectivamente.</p>
+<hr />
+<h2>GRÁFICO 4. Fallecidos por cada 100 víctimas, según franja horaria</h2>
+<h3>1. Propósito</h3>
+<p><strong>Pregunta:</strong> ¿en qué franjas horarias hay una mayor proporción de fallecidos entre las víctimas registradas? <strong>Tarea:</strong> comparar magnitudes entre cuatro categorías; identificar el máximo y los contrastes día/noche. <strong>Variables:</strong> <code>hora</code> (hora temporal discreta, convertida en cuatro intervalos ordenados), <code>estado</code> (nominal: Herido/Fallecido), y <code>100 × Fallecido / (Fallecido + Herido)</code> (cuantitativa continua derivada, expresada por 100 víctimas). Periodo: 2021–2025.</p>
+<h3>2. Evaluación teórica</h3>
+<ul>
+<li><strong>Munzner / dominio:</strong> la pregunta de <strong>gravedad observada entre víctimas</strong> está bien operacionalizada. La cifra no estima riesgo de accidente por hora ni por desplazamiento.</li>
+<li><strong>Munzner / abstracción:</strong> recodificación de horas en madrugada 0–5, mañana 6–11, tarde 12–17 y noche 18–23. El denominador contiene las víctimas registradas, no los viajes. El orden de los intervalos es cronológico. Se verificó que no faltan horas fuera de 0–23 en el registro usado.</li>
+<li><strong>Munzner / codificación/interacción:</strong> cuatro barras desde cero en escala común; naranja para dos intervalos 18–05, azul para 06–17. Etiquetas numéricas precisas sobre cada barra. El eje de categorías original colocaba nombres largos en una sola línea, vulnerables a compresión del ancho disponible; el <em>hover</em> usaba punto decimal.</li>
+<li><strong>Munzner / implementación:</strong> se recalculó cada proporción por <code>crosstab(franja, estado)</code>. La altura de cada barra y su color no cambian.</li>
+<li><strong>Mackinlay:</strong> las barras son expresivas y efectivas para cuatro proporciones que comparten unidad. Un gráfico de líneas podría sugerir interpolación continua entre cuatro intervalos amplios que los datos agregados no permiten. Un gráfico circular sería menos preciso para comparar estas cuatro razones.</li>
+<li><strong>Cleveland &amp; McGill:</strong> longitud y extremos de barras alineados a un origen común facilitan comparación. Los valores anotados mejoran la lectura exacta, sin obligar a juzgar ángulos o áreas.</li>
+</ul>
+<h3>3. Diagnóstico</h3>
+<p><strong>Fortalezas:</strong> unidad común, orden temporal, eje vertical con cero, texto numérico y color con función semántica clara. <strong>Debilidades:</strong> rótulos de categorías extensos; pequeñas inconsistencias de notación decimal. <strong>Riesgo:</strong> interpretar 5,06 como una tasa de accidentes entre toda la movilidad; en realidad corresponde a fallecidos entre víctimas.</p>
+<h3>4. Alternativas</h3>
+<p><strong>Actual:</strong> cuatro barras verticales. <strong>Alternativa considerada:</strong> cuatro puntos en escala horizontal común, o barras horizontales. En pantallas angostas una disposición horizontal puede ser útil, pero las barras existentes son apropiadas en un informe de escritorio y reflejan el orden del día. Para este caso dividir etiquetas en dos líneas es una corrección más conservadora que sustituir la visualización.</p>
+<h3>5. Decisión final</h3>
+<p>🟡 <strong>AJUSTAR</strong> rotulación, no el tipo de gráfico. Fundamento: mantener comparaciones por longitud desde un cero compartido y disminuir el riesgo de solapamiento de categorías.</p>
+<h3>6. Implementación y verificación</h3>
+<p>Se presentan los nombres de franja y los rangos horarios en <strong>dos líneas</strong>. El <em>hover</em> usa 5,06 y registra fallecidos/heridos con formato numérico en español. Se verificaron las cuatro proporciones, sin modificar la geometría: madrugada <strong>5,06</strong>; mañana <strong>1,93</strong>; tarde <strong>1,95</strong>; noche <strong>2,55</strong> fallecidos por cada 100 víctimas.</p>
+<hr />
+<h2>GRÁFICO 5. Diez localidades con más personas fallecidas</h2>
+<h3>1. Propósito</h3>
+<p><strong>Pregunta:</strong> ¿en qué localidades se registran más fallecidos acumulados en 2021–2025? <strong>Tarea:</strong> ordenar categorías, reconocer máximos, comparar volúmenes. <strong>Variables:</strong> <code>localidad</code> (nominal) y cantidad de personas fallecidas acumulada (cuantitativa discreta); filtro temporal 2021–2025; subconjunto de las diez localidades con más casos.</p>
+<h3>2. Evaluación teórica</h3>
+<ul>
+<li><strong>Munzner / dominio:</strong> identifica concentración territorial <strong>en números absolutos</strong>, útil para el seguimiento; no permite comparar riesgo ajustado por habitantes, tráfico o viajes.</li>
+<li><strong>Munzner / abstracción:</strong> agrupación de fallecidos por localidad, ordenación descendente y selección de top 10. La selección es coherente con localizar focos de concentración; no pretende representar todas las localidades ni distribución geográfica dentro de ellas.</li>
+<li><strong>Munzner / codificación/interacción:</strong> barras <strong>horizontales</strong>, inicio en cero, orden de mayor a menor leído de arriba hacia abajo, nombres completos, números encima/al final de cada barra. El naranja identifica las cinco primeras, el gris el resto. No se requiere mapa de polígonos para un ranking.</li>
+<li><strong>Munzner / implementación:</strong> se comprobó el orden y cada cantidad contra <code>value_counts()</code> sobre víctimas fatales 2021–2025; todas las especificaciones del gráfico se conservaron iguales al original.</li>
+<li><strong>Mackinlay:</strong> expresividad y efectividad altas: categorías nominales ↔ posición ordenada; cuantía ↔ longitud desde cero, con etiquetas exactas. Un mapa coloreado introduciría geometría y áreas de localidades que no facilitan ordenar magnitudes tan bien.</li>
+<li><strong>Cleveland &amp; McGill:</strong> comparación de longitudes sobre una línea de base común. La intensidad del relleno no sustituye la longitud; el color se usa solamente para destacar top 5.</li>
+</ul>
+<h3>3. Diagnóstico</h3>
+<p><strong>Fortalezas:</strong> jerarquía clara, textos de localidades legibles y valores explícitos. <strong>Debilidad:</strong> top 10 oculta localidades de menor acumulado (decisión de alcance documentada en el título). <strong>Riesgo:</strong> confundir mayor número absoluto con mayor probabilidad por desplazamiento; el texto lateral advierte el alcance.</p>
+<h3>4. Alternativas</h3>
+<p><strong>Actual:</strong> ranking horizontal. <strong>Alternativa considerada:</strong> mapa coroplético o gráfico de puntos. Un mapa respondería <em>dónde están</em> y relaciones de vecindad, pero no mejora la comparación exacta de cantidades y puede sobrerrepresentar localidades extensas. Un dot plot sería aceptable, no claramente superior para estos diez conteos etiquetados.</p>
+<h3>5. Decisión final</h3>
+<p>✅ <strong>CONSERVAR</strong> exactamente el gráfico existente.</p>
+<h3>6. Implementación y verificación</h3>
+<p>No hubo cambios. Se verificó igualdad de objeto Plotly completo, recuentos, orden y paleta. Kennedy conserva el primer puesto en el acumulado con <strong>328</strong> fallecidos; Engativá registra <strong>240</strong>.</p>
+<hr />
+<h2>GRÁFICO 6. Motociclistas fallecidos por localidad y franja horaria</h2>
+<h3>1. Propósito</h3>
+<p><strong>Pregunta:</strong> ¿qué combinaciones de localidad y horario concentran más motociclistas fallecidos entre 2021 y 2025? <strong>Tarea:</strong> examinar una matriz de dos categorías, localizar celdas de valor alto y comparar recuentos específicos. <strong>Variables:</strong> <code>localidad</code> (nominal), <code>franja</code> (categoría ordinal temporal con cuatro intervalos), <code>actor = Motociclista</code> (filtro nominal), <code>estado = Fallecido</code> (filtro nominal) y conteo (cuantitativo discreto).</p>
+<h3>2. Evaluación teórica</h3>
+<ul>
+<li><strong>Munzner / dominio:</strong> responde directamente a la intersección de tres dimensiones relevantes. <strong>No</strong> informa tasas por motociclista expuesto o por flujo vehicular.</li>
+<li><strong>Munzner / abstracción:</strong> tabla de contingencia <code>localidad × franja</code> y selección de las diez localidades con más fallecidos motociclistas. La misma escala se usa en todas las 40 celdas. La localidad se ordena por total, no por un solo intervalo.</li>
+<li><strong>Munzner / codificación/interacción:</strong> mapa de calor de 10 × 4. La intensidad naranja indica mayor conteo y cada celda muestra su número exacto; el <em>hover</em> reproduce localidad, franja y conteo. La escala fue fija de 0 a 47, sin barra de color. El código era correcto, pero <strong>faltaba declarar en texto la dirección de la escala</strong> para quienes no la infieren espontáneamente.</li>
+<li><strong>Munzner / algoritmo:</strong> se recomputó la tabla cruzada completa de 40 celdas sobre CSV y se comparó con la matriz original y revisada. Se conserva el arreglo, los límites 0–47 y la lógica de color.</li>
+<li><strong>Mackinlay:</strong> la intensidad cromática es menos efectiva para diferencias exactas, pero aquí permite <strong>buscar concentraciones</strong> en muchos cruces sin desplegar 40 barras. Las etiquetas numéricas compensan la precisión perceptual limitada del color. La matriz no introduce geografía inexistente: no es un mapa espacial.</li>
+<li><strong>Cleveland &amp; McGill:</strong> para magnitudes individuales, el color es menos preciso que la posición; sin embargo, una matriz con números dentro de celdas es adecuada a la tarea de <em>detección visual</em> y búsqueda por dos categorías. Reemplazar por 40 barras o un gráfico de puntos dificultaría el cruce de dimensiones. Se reservan los números para comparación exacta.</li>
+</ul>
+<h3>3. Diagnóstico</h3>
+<p><strong>Fortalezas:</strong> todos los cruces en una vista, lectura explícita por celda, escala cromática monotónica, alto contraste de texto oscuro sobre fondo naranja. <strong>Debilidad:</strong> la escala de intensidad carece de leyenda y su dirección no se explicitaba en el subtítulo. <strong>Riesgo:</strong> confundir altos conteos con un mayor riesgo ajustado o interpretar el color como una clase nominal de riesgo.</p>
+<h3>4. Alternativas</h3>
+<p><strong>Actual:</strong> mapa de calor anotado. <strong>Alternativa considerada:</strong> barras agrupadas localidad × horario o <em>small multiples</em>. Estas mejorarían la comparación exacta de un subconjunto de celdas, pero multiplicarían ejes y dificultarían identificar rápidamente concentraciones en 40 intersecciones. La matriz anotada conserva un equilibrio adecuado para detectar patrones y leer cantidades exactas.</p>
+<h3>5. Decisión final</h3>
+<p>🟡 <strong>AJUSTAR</strong> exclusivamente el subtítulo: aclarar “<strong>más naranja = mayor recuento</strong>”. No se agrega una leyenda que reduzca el área útil ni se reemplaza el mapa de calor.</p>
+<h3>6. Implementación y verificación</h3>
+<p>La matriz, el orden de localidades, los textos, el mapa de colores y los intervalos son <strong>idénticos</strong> al original; se modificó solo el subtítulo. Se verificó que Kennedy × madrugada presenta <strong>47</strong> motociclistas fallecidos y que las 40 celdas coinciden con el archivo fuente.</p>
+<hr />
+<h2>Comprobaciones transversales y límites de validez</h2>
+<p><strong>Revisión de fuentes y operaciones.</strong> Se leyó el agregado de siniestros con víctimas (<code>siniestros_con_victimas_anual.csv</code>) y el registro de víctimas (<code>victimas_anuario.csv.gz</code>), ambos provenientes de la entrega anterior. Se reprodujeron por separado las seis construcciones de datos: 11 valores anuales de siniestros, 11 de fallecidos, dos series de participación, cuatro razones por franja, diez recuentos de localidades y 40 cruces localidad–horario. Los resultados numéricos y las escalas de los seis gráficos nuevos son los mismos. El tramo desagregado de 2021–2025 contiene <strong>107.755 registros de víctimas</strong>, de los cuales <strong>2.667 son fallecidos</strong>. Esto constituye una <strong>verificación interna frente a las bases entregadas</strong>, no una auditoría externa independiente frente a publicaciones del Observatorio de Movilidad.</p>
+<p><strong>Conservación estricta.</strong> Las representaciones <strong>2, 5 y 6</strong> mantienen exactamente sus objetos Plotly de trazas y diseño, comprobado mediante comparación estructural. En el n.º 6 solo cambió un subtítulo HTML externo al gráfico. Las representaciones 1, 3 y 4 conservan todas las magnitudes, colores y tipos: cambian anotación o formato de lectura. Se mantuvo la paleta original: naranja <code>#E8772E</code>, azul <code>#16213A</code> y grises del tema de Power BI; el naranja conserva su función de énfasis.</p>
+<p><strong>Interactividad y rendimiento.</strong> Las seis visualizaciones se exportaron como Plotly con <em>hover</em> y configuración responsiva. El HTML conserva Plotly embebido y puede abrirse sin instalaciones ni dependencia de servidores externos. La inspección estática confirmó seis gráficos, cero scripts remotos y la preservación de sus valores. <strong>En esta sesión no se completó una prueba de renderizado en navegador automatizado</strong> porque el entorno bloqueó el acceso automatizado a las páginas locales (<code>ERR_BLOCKED_BY_ADMINISTRATOR</code>); por ello la lectura visual final en Chrome/Edge —especialmente a 550 px de ancho y en pantalla de proyección— queda <strong>pendiente de comprobación directa</strong>, y no se afirma que los solapamientos se hayan medido empíricamente.</p>
+<p><strong>Validación con usuarios pendiente.</strong> Para contrastar efectividad real, sugerimos una pequeña prueba de tareas con lectoras/es representativos: encontrar el mínimo anual, comparar porcentajes de actores en 2025, identificar la franja de mayor gravedad y localizar la celda más alta de motociclistas. Registrar exactitud, tiempo y errores de interpretación antes de atribuir una mejora empírica. Para probar el <strong>dominio</strong>, validar con los responsables de movilidad que las preguntas y el denominador de cada indicador corresponden a su necesidad de decisión.</p>
+<p><strong>Conclusión de diseño.</strong> Ninguna visualización requiere sustitución. Las mejores correcciones son pequeñas, reversibles y orientadas a fidelidad de lectura; conservar los tipos actuales ofrece una mejor relación entre precisión, continuidad narrativa y carga cognitiva que un rediseño general.</p>
+<h2>Referencias</h2>
+<ul>
+<li>Munzner, T. (2009). <em>A nested model for visualization design and validation</em>. <em>IEEE Transactions on Visualization and Computer Graphics, 15</em>(6), 921–928. https://doi.org/10.1109/TVCG.2009.111</li>
+<li>Mackinlay, J. (1986). <em>Automating the design of graphical presentations of relational information</em>. <em>ACM Transactions on Graphics, 5</em>(2), 110–141. https://doi.org/10.1145/22949.22950</li>
+<li>Cleveland, W. S., &amp; McGill, R. (1984). <em>Graphical perception: Theory, experimentation, and application to the development of graphical methods</em>. <em>Journal of the American Statistical Association, 79</em>(387), 531–554. https://doi.org/10.1080/01621459.1984.10478080</li>
+</ul>
+</main></body></html>

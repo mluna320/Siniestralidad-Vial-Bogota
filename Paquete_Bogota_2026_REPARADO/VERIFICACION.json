@@ -1,0 +1,58 @@
+{
+  "revision": "2026-11-14T06:48",
+  "graficos": [
+    {
+      "figura": 1,
+      "nombre": "Siniestros",
+      "valores_inalterados": true,
+      "trazos_color_inalterados": true,
+      "payload_igual": false
+    },
+    {
+      "figura": 2,
+      "nombre": "Fallecidos",
+      "valores_inalterados": true,
+      "trazos_color_inalterados": true,
+      "payload_igual": true
+    },
+    {
+      "figura": 3,
+      "nombre": "Actores",
+      "valores_inalterados": true,
+      "trazos_color_inalterados": true,
+      "payload_igual": false
+    },
+    {
+      "figura": 4,
+      "nombre": "Franjas",
+      "valores_inalterados": true,
+      "trazos_color_inalterados": true,
+      "payload_igual": false
+    },
+    {
+      "figura": 5,
+      "nombre": "Localidades",
+      "valores_inalterados": true,
+      "trazos_color_inalterados": true,
+      "payload_igual": true
+    },
+    {
+      "figura": 6,
+      "nombre": "Cruce",
+      "valores_inalterados": true,
+      "trazos_color_inalterados": true,
+      "payload_igual": true
+    }
+  ],
+  "medidas_comprobadas": {
+    "eventos_2015": 11255,
+    "eventos_2025": 11573,
+    "fallecidos_2015": 530,
+    "fallecidos_2025": 562,
+    "victimas_2021_2025": 107755,
+    "fallecidos_2021_2025": 2667,
+    "max_motos_madrugada_kennedy": 47
+  },
+  "fuente_comprobacion": "Archivos CSV conservados de la entrega anterior; auditoría interna de equivalencia, no validación externa a publicaciones oficiales",
+  "comprobacion_navegador": "No ejecutada en esta sesión; navegación file/http bloqueada en entorno automatizado"
+}

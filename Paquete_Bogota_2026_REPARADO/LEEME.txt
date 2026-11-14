@@ -1,0 +1,7 @@
+INFORME DE SINIESTRALIDAD VIAL EN BOGOTA (2015-2025)
+
+OPCION 1 - HTML: Extrae el ZIP y abre Informe_Bogota_2015_2025.html en Chrome o Edge. No requiere instalar nada ni conectarse a Internet.
+
+OPCION 2 - STREAMLIT: Extrae el ZIP completo. Instala Python y ejecuta ABRIR_STREAMLIT.bat (Windows) o desde la terminal: python -m pip install -r requirements.txt && python -m streamlit run app/app.py
+
+La evaluacion metodologica esta en EVALUACION_VISUALIZACIONES.html.
